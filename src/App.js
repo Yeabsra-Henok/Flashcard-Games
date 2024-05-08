@@ -41,11 +41,9 @@ const questions = [
     answer: "react",
   },
 ];
-
 function Flashcards() {
   const [selectedid, setSelectedid] = useState(null);
 
-  
   return (
     <div>
       {questions.map((question) => (
