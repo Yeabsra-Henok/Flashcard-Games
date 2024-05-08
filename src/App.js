@@ -47,7 +47,7 @@ function Flashcards() {
   const [selectedid, setSelectedid] = useState(null);
 
   function handleclick(id) {
-    setSelectedid(id);
+    setSelectedid(id !== setSelectedid ? id : null);
   }
 
   return (
