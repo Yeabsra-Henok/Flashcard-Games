@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./App.css";
 
 export default function App() {
   return (
@@ -10,45 +11,56 @@ export default function App() {
 
 const questions = [
   {
-    id: 1234,
-    question: "what language is react based on?",
-    answer: "react",
+    id: 3457,
+    question: "What language is React based on?",
+    answer: "JavaScript",
   },
   {
-    id: 3453,
-    question: "WHat is my name?",
-    answer: "react",
-  },
-
-  {
-    id: 6854,
-    question: "what language is react based on?",
-    answer: "react",
+    id: 7336,
+    question: "What are the building blocks of React apps?",
+    answer: "Components",
   },
   {
-    id: 6343,
-    question: "what language is react based on?",
-    answer: "react",
+    id: 8832,
+    question: "What's the name of the syntax we use to describe a UI in React?",
+    answer: "JSX",
   },
   {
-    id: 9623,
-    question: "what language is react based on?",
-    answer: "react",
+    id: 1297,
+    question: "How to pass data from parent to child components?",
+    answer: "Props",
   },
   {
-    id: 6853,
-    question: "what language is react based on?",
-    answer: "react",
+    id: 9103,
+    question: "How to give components memory?",
+    answer: "useState hook",
+  },
+  {
+    id: 2002,
+    question:
+      "What do we call an input element that is completely synchronised with state?",
+    answer: "Controlled element",
   },
 ];
+
 function Flashcards() {
   const [selectedid, setSelectedid] = useState(null);
 
+  function handleclick(id) {
+    setSelectedid(id);
+  }
+
   return (
-    <div>
+    <div className="flashcards">
       {questions.map((question) => (
-        <div key={question.id}>
-          <p>{question.question}</p>
+        <div
+          key={question.id}
+          onClick={() => handleclick(question.id)}
+          className={question.id === selectedid ? "selected" : ""}
+        >
+          <p>
+            {question.id === selectedid ? question.answer : question.question}
+          </p>
         </div>
       ))}
     </div>
